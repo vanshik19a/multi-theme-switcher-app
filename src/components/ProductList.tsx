@@ -10,11 +10,11 @@ interface Product {
 
 const ProductList: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get('https://fakestoreapi.com/products')
+      .get<Product[]>('https://fakestoreapi.com/products')
       .then((res) => {
         setProducts(res.data);
         setLoading(false);
@@ -26,18 +26,15 @@ const ProductList: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center py-8">Loading products...</div>;
+    return <p className="text-center mt-10">Loading products...</p>;
   }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
       {products.map((product) => (
-        <div
-          key={product.id}
-          className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-md transition"
-        >
-          <img src={product.image} alt={product.title} className="w-full h-48 object-contain mb-4" />
-          <h3 className="text-md font-semibold mb-2">{product.title}</h3>
+        <div key={product.id} className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+          <img src={product.image} alt={product.title} className="h-40 mx-auto object-contain mb-4" />
+          <h2 className="text-lg font-semibold">{product.title}</h2>
           <p className="text-sm font-medium">
             ₹ {product.price.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
           </p>
