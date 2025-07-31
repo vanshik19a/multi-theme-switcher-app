@@ -33,10 +33,14 @@ const ProductList: React.FC = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
       {products.map((product) => (
         <div key={product.id} className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-          <img src={product.image} alt={product.title} className="h-40 mx-auto object-contain mb-4" />
-          <h2 className="text-lg font-semibold">{product.title}</h2>
-          <p className="text-sm font-medium">
-            ₹ {product.price.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
+          <img
+            src={product.image}
+            alt={product.title}
+            className="h-40 mx-auto object-contain mb-4"
+          />
+          <h2 className="text-lg font-semibold dark:text-white">{product.title}</h2>
+          <p className="text-sm font-medium dark:text-gray-300">
+            ₹ {product.price.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
           </p>
         </div>
       ))}
