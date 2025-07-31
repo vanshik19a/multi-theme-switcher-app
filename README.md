@@ -3,7 +3,7 @@
 A React + TypeScript project with Tailwind CSS that allows users to switch between multiple visual themes (light, dark, pink, etc.).
 
 ## Live Demo  
-https://multi-theme-switcher-app.vercel.app
+https://multi-theme-switcher-app-eight.vercel.app/
 
 ---
 
