@@ -5,7 +5,7 @@ A React + TypeScript project with Tailwind CSS that allows users to switch betwe
 ## Live Demo  
 https://multi-theme-switcher-app-eight.vercel.app/
 
----
+----
 
 ## Features
 
